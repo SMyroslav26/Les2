@@ -39,9 +39,9 @@ namespace Zoo.Animals
         public byte Health
         { get { return _health; }
           set { if (value == 0)
-                { Console.WriteLine("Тварина мертва :("); }
+                { Console.WriteLine("Тварина мертва :( "); }
                 else if (value == _healthAnimal)
-                { Console.WriteLine("Тварина потребаує лікування :("); }
+                { Console.WriteLine("Тварина потребаує лiкування :("); }
                 else  _health = value;
             }  
         }
@@ -55,19 +55,25 @@ namespace Zoo.Animals
                 {
                     case Condition.Sated:
                         _condition = Condition.Hungry;
-                        Console.WriteLine("Тварина {0} голодна", Alias);
+                        Console.WriteLine("Тварина {0} голодна \n", _alias);
                         break;
                     case Condition.Hungry:
                         _condition = Condition.Ill;
-                        Console.WriteLine("Тварина {0} хворіє", Alias);
+                        Console.WriteLine("Тварина {0} хворiє \n", _alias);
                         break;
                     case Condition.Ill:
                         
                         _health--;
+
                         if (_health == 0)
                         {
-                            Console.WriteLine("Тварина {0} померла" , Alias);
+                            Console.WriteLine("Тварина {0} померла \n", _alias);
                             _condition = Condition.Dead;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Тварина {0} продовжує хворiти \n", _alias);
+
                         }
                         break;
                 }

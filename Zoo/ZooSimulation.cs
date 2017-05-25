@@ -28,16 +28,18 @@ namespace Zoo
         public void Start()
        {
             TimerCallback timeback = new TimerCallback(ChangeSomeAnimal);
-            timer = new Timer(timeback, null, 0, 15000);
+            timer = new Timer(timeback, null, 0, 5000);
             //добавимо декілька тваринок
 
-            animals.Add(new Bear("Тед") );
-            animals.Add(new Fox("Сестричка"));
+            animals.Add(new Bear("Ted") );
+            animals.Add(new Wolf("Vovk"));
+            animals.Add(new Fox("Sister"));
+            animals.Add(new Tiger("Bob"));
 
-            Console.WriteLine("Виберіть дію для тварини");
+            Console.WriteLine("Виберiть дiю для тварини");
             Console.WriteLine("1 - щоб добавити ");
             Console.WriteLine("2 - щоб погодувати");
-            Console.WriteLine("3 - щоб вилікувати" );
+            Console.WriteLine("3 - щоб вилiкувати" );
             Console.WriteLine("4 -Видалити мертвих тварин з зоопарку");
             while (animals.Count() != 0)
             {
@@ -48,9 +50,9 @@ namespace Zoo
                     //додати тварину
                     case 1:
                         Console.WriteLine(
-                            "Яку тварину додати?\n 1-Ведмідь \n 2-Слон\n 3-Лисицю\n 4-Лев\n 5-Тигер\n 6-Вовк");
+                            "Яку тварину додати?\n 1-Ведмiдь \n 2-Слон\n 3-Лисицю\n 4-Лев\n 5-Тигер\n 6-Вовк");
                         int animalType = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine("Введіть імя тварини :\t");
+                        Console.WriteLine("Введiть iмя тварини :\t");
                         var name = Console.ReadLine();
                         switch (animalType)
                         {
@@ -75,39 +77,51 @@ namespace Zoo
                             default:
                                 break;
                         }
+                        Console.WriteLine("доблено тварину {0} :\t", name);
                         break;
                         //нагодувати тварину
                     case 2:
-                        Console.WriteLine("Яку тварину, або тварин ви хочете нагодувати? Покличте їх) (Введіть кличку) ");
+                        Console.WriteLine("Яку тварину, або тварин ви хочете нагодувати? Покличте їх) (Введiть кличку) ");
                         name = Console.ReadLine();
                         for (int i = 0; i < animals.Count; i++)
                         {
                             if (animals[i].Alias == name)
                                 animals[i].Feed();
                         }
+                        Console.WriteLine("Ви нагодували {0}",name);
                         break;
                         // 
                     case 3:
-                        Console.WriteLine("Введіть кличку тварин(и) які ви хочете полікувати ");
+                        Console.WriteLine("Введiть кличку тварин(и) якi ви хочете полiкувати ");
                         name = Console.ReadLine();
                         for (int i = 0; i < animals.Count; i++)
                         {
                             if (animals[i].Alias == name)
                                 animals[i].Health++;
                         }
+                        Console.WriteLine("Ви полiкували {0}", name);
                         break;
                     case 4:
-                    //    animals.Remove
+                        Console.WriteLine("Яку тварину видалити? Введiть кличку ");
+                        name = Console.ReadLine();
+                        for (int i = 0; i < animals.Count; i++)
+                        {
+                            if (animals[i].Alias == name && animals[i].Condition == Condition.Dead)
+                            { 
+                                animals.Remove(animals[i]);
+                            Console.WriteLine("{0} видалено", name);
+                            }
+                        }
+                       
                         break;
-                    case 5:
-                     //   animals.ShowAnimals();
-                        break;
+                                              
+                   
                     default:
                         break;
                 }
                 if (animals.Count == 0)
                 {
-                    Console.WriteLine("\n\nВсі тварини померли...");
+                    Console.WriteLine("\n\nВсi тварини померли...");
                 }
 
 
