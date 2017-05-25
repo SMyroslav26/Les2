@@ -1,0 +1,6 @@
+C:\MyProject\zoo\Zoo\Zoo\bin\Debug\Zoo.exe.config
+C:\MyProject\zoo\Zoo\Zoo\bin\Debug\Zoo.exe
+C:\MyProject\zoo\Zoo\Zoo\bin\Debug\Zoo.pdb
+C:\MyProject\zoo\Zoo\Zoo\obj\Debug\Zoo.csprojResolveAssemblyReference.cache
+C:\MyProject\zoo\Zoo\Zoo\obj\Debug\Zoo.exe
+C:\MyProject\zoo\Zoo\Zoo\obj\Debug\Zoo.pdb
