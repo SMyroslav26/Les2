@@ -45,7 +45,8 @@ namespace Zoo.Animals
                 else  _health = value;
             }  
         }
-        public string Alias { get; }
+        public string Alias { get { return _alias; } }
+        public byte HealthAnimal { get { return _healthAnimal; } }
 
         public void changeCondition()
         {
